@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  resources :municipes, except: %i[destroy]
 
-  #TODO: Verify namespace and resources for the models to facilitate pathways
+  root 'municipes#index'
 
 end

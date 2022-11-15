@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_171000) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_15_192621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_171000) do
   end
 
   create_table "municipes", force: :cascade do |t|
-    t.text "name", null: false
+    t.string "name", null: false
     t.integer "cpf", null: false
     t.integer "cns", null: false
     t.string "email", null: false
