@@ -15,13 +15,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_192621) do
   enable_extension "plpgsql"
 
   create_table "adresses", force: :cascade do |t|
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.string "street", null: false
     t.string "complement"
     t.string "district", null: false
     t.string "city", null: false
     t.string "state", null: false
-    t.integer "ibge_code"
+    t.string "ibge_code"
     t.bigint "municipe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,12 +30,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_192621) do
 
   create_table "municipes", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "cpf", null: false
-    t.integer "cns", null: false
+    t.string "cpf", null: false
+    t.string "cns", null: false
     t.string "email", null: false
     t.date "birthdate", null: false
-    t.integer "phone", null: false
-    t.string "picture", null: false
+    t.string "phone", null: false
+    t.string "picture"
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -4,14 +4,17 @@ class Municipe < ApplicationRecord
     inactive: 'inactive'
   }
 
-  has_one :Municipe, required: true
+  has_one :adress, required: true
+  accepts_nested_attributes_for :adress
 
   validates :name,        presence: true, length: { maximum: 200 }
-  validates :cpf,         presence: true, length: { maximum: 11 }, uniquiness: true
+  validates :cpf,         presence: true #cpf: true
   validates :phone,       presence: true, length: { maximum: 15 }
-  validates :cns,         presence: true, length: { maximum: 15 }, uniquiness: true
-  validates :email,       presence: true, length: { maximum: 200 }
+  validates :cns,         presence: true #'::CnsBrazil::Cns': true
 
-  validates :birth_date, comparison: { less_than_or_equal_to: Date.today }
+  validates :email,       presence: true, confirmation: true, length: { maximum: 200 }
+  validates :email,       email_format: { message: 'Email Inválido!' }
+
+  validates :birthdate, comparison: { less_than_or_equal_to: Date.today }
 
 end

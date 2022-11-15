@@ -1,5 +1,5 @@
 class MunicipesController < ApplicationController
-  before_action :set_municipe, only: %i[ show edit update destroy ]
+  before_action :set_municipe, only: %i[ show edit update ]
 
   # GET /municipes or /municipes.json
   def index
@@ -13,6 +13,7 @@ class MunicipesController < ApplicationController
   # GET /municipes/new
   def new
     @municipe = Municipe.new
+    @municipe.build_adress
   end
 
   # GET /municipes/1/edit
@@ -65,6 +66,16 @@ class MunicipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def municipe_params
-      params.require(:municipe).permit(:name)
+      params.require(:municipe).permit(:name,
+                                       :cpf,
+                                       :cns,
+                                       :email,
+                                       :birthdate,
+                                       :phone,
+                                       :status,
+                                       adress_attributes: %i[
+                                         postal_code street complement district city state ibge_code
+                                        ]
+                                      )
     end
 end

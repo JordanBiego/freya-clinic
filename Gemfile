@@ -28,6 +28,12 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+#Life-Savers and Validators
+
+# gem 'cns_brazil'
+# gem 'validates_cpf'
+gem 'validates_email_format_of'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end

@@ -1,5 +1,5 @@
 class Adress < ApplicationRecord
-  belongs_to :Municipe, class_name: 'Municipe', inverse_of: :Adress
+  belongs_to :municipe, class_name: 'Municipe', inverse_of: :adress
 
   validates :postal_code, presence: true, length: { maximum: 200 }
   validates :street,      presence: true, length: { maximum: 200 }
