@@ -31,7 +31,7 @@ gem "bootsnap", require: false
 #Life-Savers and Validators
 
 # gem 'cns_brazil'
-# gem 'validates_cpf'
+gem "cpf_cnpj"
 gem 'validates_email_format_of'
 
 group :development, :test do
