@@ -23,7 +23,7 @@ class MunicipesController < ApplicationController
   # POST /municipes or /municipes.json
   def create
     @municipe = Municipe.new(municipe_params)
-
+    @municipe.active!
     respond_to do |format|
       if @municipe.save
         format.html { redirect_to municipe_url(@municipe), notice: "Municipe was successfully created." }
@@ -73,8 +73,9 @@ class MunicipesController < ApplicationController
                                        :birthdate,
                                        :phone,
                                        :status,
+                                       :avatar,
                                        adress_attributes: %i[
-                                         postal_code street complement district city state ibge_code
+                                         id postal_code street complement district city state ibge_code
                                         ]
                                       )
     end

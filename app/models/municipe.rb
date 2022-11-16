@@ -4,6 +4,11 @@ class Municipe < ApplicationRecord
     inactive: 'inactive'
   }
 
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb_40, resize_to_limit: [40, 40]
+    attachable.variant :thumb_80, resize_to_limit: [80, 80]
+  end
+  
   has_one :adress, required: true
   accepts_nested_attributes_for :adress
 
