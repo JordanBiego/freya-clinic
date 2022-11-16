@@ -1,91 +1,70 @@
-<%= form_with(model: municipe) do |form| %>
-  <% if municipe.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(municipe.errors.count, "error") %> prohibited this municipe from being saved:</h2>
-
-      <ul>
-        <% municipe.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.number_field :cpf %>
-  </div>
-
-  <div>
-    <%= form.label :cns, style: "display: block" %>
-    <%= form.number_field :cns %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.email_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :birthdate, style: "display: block" %>
-    <%= form.date_field :birthdate %>
-  </div>
-  
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.telephone_field :phone %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-
-  <%= form.fields_for :adress do |a_form| %>
+<%= simple_form_for(@municipe) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     
-    <div>
-      <%= a_form.label :postal_code, style: "display: block" %>
-      <%= a_form.number_field :postal_code %>
-    </div>
-
-    <div>
-      <%= a_form.label :street, style: "display: block" %>
-      <%= a_form.text_field :street %>
-    </div>
-
-    <div>
-      <%= a_form.label :complement, style: "display: block" %>
-      <%= a_form.text_field :complement %>
-    </div>
-
-    <div>
-      <%= a_form.label :district, style: "display: block" %>
-      <%= a_form.text_field :district %>
-    </div>
-
-    <div>
-      <%= a_form.label :city, style: "display: block" %>
-      <%= a_form.text_field :city %>
-    </div>
-
-    <div>
-      <%= a_form.label :state, style: "display: block" %>
-      <%= a_form.text_field :state %>
-    </div>
-
-    <div>
-      <%= a_form.label :ibge_code, style: "display: block" %>
-      <%= a_form.number_field :ibge_code %>
-    </div>
-
-  <% end %>
-
   <div>
-    <%= form.submit %>
+    <div class="form-inputs">
+    <h5>Dados Pessoais</h5>
+      <div class="row">
+        <div class="col-md-8">
+          <%= f.input :name %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :email %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :cpf %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :cns %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :birthdate, html5: true, input_html: { max: Date.today } %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :phone %>
+        </div>
+      </div>
+
+      <hr />
+      <h5>Endereço</h5>
+      <%= f.simple_fields_for :adress do |adress_form| %>
+
+      <div class="row">
+        <div class="col-md-3">
+          <%= adress_form.input :postal_code %>
+        </div>
+
+        <div class="col-md-9">
+          <%= adress_form.input :street %>
+        </div>
+      </div>
+        <%= adress_form.input :complement %>
+        <%= adress_form.input :district %>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= adress_form.input :city %>
+        </div>
+        <div class="col-md-3">
+          <%= adress_form.input :state %>
+        </div>
+        <div class="col-md-3">
+          <%= adress_form.input :ibge_code %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+  <div class="form-actions">
+    <%= link_to '<i class="bi bi-arrow-left"></i>'.html_safe, municipes_path, title: 'voltar', class: 'btn btn-outline-primary rounded-pill' %>
+    <%= f.button :submit, class: 'btn btn-outline-primary rounded-pill' %>
   </div>
 <% end %>

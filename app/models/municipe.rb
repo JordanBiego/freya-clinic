@@ -15,6 +15,7 @@ class Municipe < ApplicationRecord
   validates :email,       presence: true, confirmation: true, length: { maximum: 200 }
   validates :email,       email_format: { message: 'Email Inválido!' }
 
-  validates :birthdate, comparison: { less_than_or_equal_to: Date.today }
+  validates :birthdate,   presence: true
+  validates :birthdate,   comparison: { less_than_or_equal_to: Date.today }
 
 end

@@ -1,9 +1,8 @@
-<h1>New municipe</h1>
-
-<%= render "form", municipe: @municipe %>
-
-<br>
-
-<div>
-  <%= link_to "Back to municipes", municipes_path %>
+<div class="card shadow-sm text-black">
+  <div class="card-header bg-transparent border-0">
+    <h2>Novo Munícipe</h2>
+  </div>
+  <div class="card-body align-items-center">
+    <%= render "form", municipe: @municipe %>
+  </div>
 </div>
