@@ -34,6 +34,7 @@ gem 'cns_brazil'
 gem 'validates_cpf'
 gem 'validates_email_format_of'
 gem 'simple_form'
+gem 'elasticsearch'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

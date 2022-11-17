@@ -49,6 +49,21 @@ class MunicipesController < ApplicationController
     end
   end
 
+  def change_status
+    swap = Municipe.find_by(id: params[:municipe_id])
+
+    if swap.status == 'active'
+      swap.inactive!
+      respond_to do |format|
+        format.html { redirect_to municipes_url, notice: 'Inativado com sucesso' }
+      end
+    else
+      swap.active!
+      respond_to do |format|
+        format.html { redirect_to municipes_url, notice: 'Ativado com sucesso' }
+      end 
+    end
+  end
 
   # DELETE /municipes/1 or /municipes/1.json
   def destroy
