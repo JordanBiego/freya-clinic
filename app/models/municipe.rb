@@ -13,9 +13,9 @@ class Municipe < ApplicationRecord
   accepts_nested_attributes_for :adress
 
   validates :name,        presence: true, length: { maximum: 200 }
-  validates :cpf,         presence: true #cpf: true
+  validates :cpf,         presence: true, cpf: true
   validates :phone,       presence: true, length: { maximum: 15 }
-  validates :cns,         presence: true #'::CnsBrazil::Cns': true
+  validates :cns,         presence: true, '::CnsBrazil::Cns': true
 
   validates :email,       presence: true, confirmation: true, length: { maximum: 200 }
   validates :email,       email_format: { message: 'Email Inválido!' }
