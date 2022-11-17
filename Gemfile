@@ -31,7 +31,7 @@ gem "image_processing", "~> 1.2"
 #Life-Savers and Validators
 
 # gem 'cns_brazil'
-gem "cpf_cnpj"
+gem 'validates_cpf'
 gem 'validates_email_format_of'
 gem 'simple_form'
 
