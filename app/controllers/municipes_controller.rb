@@ -1,26 +1,19 @@
 class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[ show edit update ]
 
-  # GET /municipes or /municipes.json
   def index
     @municipes = Municipe.all
   end
 
-  # GET /municipes/1 or /municipes/1.json
-  def show
-  end
+  def show; end
 
-  # GET /municipes/new
   def new
     @municipe = Municipe.new
     @municipe.build_adress
   end
 
-  # GET /municipes/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /municipes or /municipes.json
   def create
     creator = CreateMunicipe.new(params: municipe_params)
     @municipe.active!
@@ -35,7 +28,6 @@ class MunicipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /municipes/1 or /municipes/1.json
   def update
     updater = UpdateMunicipe.new(params: municipe_params, municipe: @municipe)
 
@@ -65,23 +57,11 @@ class MunicipesController < ApplicationController
     end
   end
 
-  # DELETE /municipes/1 or /municipes/1.json
-  def destroy
-    @municipe.destroy
-
-    respond_to do |format|
-      format.html { redirect_to municipes_url, notice: "Municipe was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_municipe
       @municipe = Municipe.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def municipe_params
       params.require(:municipe).permit(:name,
                                        :cpf,
