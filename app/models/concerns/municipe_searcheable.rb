@@ -6,10 +6,10 @@ module MunicipeSearcheable
     include Elasticsearch::Model::Callbacks
 
     mapping do
-      indexes :name, type: :string
-      indexes :cpf, type: :string
-      indexes :cns, type: :string
-      indexes :email, type: :string
+      indexes :name, type: :text
+      indexes :cpf, type: :text
+      indexes :cns, type: :text
+      indexes :email, type: :text
     end
 
     def self.search(query)

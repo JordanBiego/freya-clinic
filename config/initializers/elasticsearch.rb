@@ -1,6 +1,5 @@
 config = {
-  host: "elasticsearch",
-  port: "9200"
+  host: "http://localhost:9200/"
 }
 
 if File.exists?("config/elasticsearch.yml")

@@ -29,7 +29,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 
-gem 'elasticsearch'
+gem 'elasticsearch', "< 7.14"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
