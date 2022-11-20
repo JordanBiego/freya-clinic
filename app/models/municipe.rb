@@ -1,4 +1,6 @@
 class Municipe < ApplicationRecord
+  include MunicipeSearcheable
+
   enum status: {
     active: 'active',
     inactive: 'inactive'

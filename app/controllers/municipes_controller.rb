@@ -2,7 +2,13 @@ class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[ show edit update ]
 
   def index
-    @municipes = Municipe.all
+    Municipe.__elasticsearch__.create_index!
+    
+    @municipes = if filter_params.blank?
+                   Municipe.includes(:adress).page(params[:page])
+                 else
+                   Municipe.includes(:adress).search(filter_params).page(params[:page]).records
+                 end
   end
 
   def show; end
@@ -16,8 +22,7 @@ class MunicipesController < ApplicationController
 
   def create
     creator = CreateMunicipe.new(params: municipe_params)
-    @municipe.active!
-    
+
     respond_to do |format|
       if creator.submit
         format.html { redirect_to municipes_url, notice: 'Munícipe criado com sucesso' }
@@ -60,6 +65,10 @@ class MunicipesController < ApplicationController
   private
     def set_municipe
       @municipe = Municipe.find(params[:id])
+    end
+
+    def filter_params
+      params['query'] || ''
     end
 
     def municipe_params

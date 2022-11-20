@@ -11,7 +11,10 @@ class CreateMunicipe
 
     return false unless @municipe.valid?
 
-    send_mail if @municipe.save
+    if @municipe.save
+      send_mail 
+      @municipe.active!
+    end
 
     true
   end
