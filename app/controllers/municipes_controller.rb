@@ -3,15 +3,12 @@ class MunicipesController < ApplicationController
 
   def index
     Municipe.__elasticsearch__.create_index!
-    
     @municipes = if filter_params.blank?
                    Municipe.includes(:adress).page(params[:page])
                  else
                    Municipe.includes(:adress).search(filter_params).page(params[:page]).records
                  end
   end
-
-  def show; end
 
   def new
     @municipe = Municipe.new

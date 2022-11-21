@@ -22,4 +22,4 @@ RUN gem install mailcatcher
 
 RUN bundle install
 
-CMD ["/bin/sh"]
+CMD ["/bin/bash"]

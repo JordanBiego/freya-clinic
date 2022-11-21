@@ -33,6 +33,9 @@ gem 'elasticsearch', "< 7.14"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+  # Using only on development fase, gonna delete this soon
+  gem 'pry-byebug'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -40,7 +43,7 @@ end
 group :development do
   gem "web-console"
   gem 'pry'
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
 
   gem 'rubocop', '~> 1.32', require: false
   gem 'solargraph'
