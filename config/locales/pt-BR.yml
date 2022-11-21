@@ -4,6 +4,8 @@ pt-BR:
     attributes:
       municipe:
         name: 'Nome'
+        cpf: 'CPF'
+        cns: 'CNS'
         birthdate: 'Data de Nascimento'
         phone: 'Telefone'
         inactive: 'Inativo'
