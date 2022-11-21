@@ -19,8 +19,6 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 #Life-Savers and Validators
-gem 'progress_bar', require: false
-
 gem 'cns_brazil'
 gem 'validates_cpf'
 gem 'validates_email_format_of'
