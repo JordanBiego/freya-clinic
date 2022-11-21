@@ -55,31 +55,31 @@ class MunicipesController < ApplicationController
       swap.active!
       respond_to do |format|
         format.html { redirect_to municipes_url, notice: 'Ativado com sucesso' }
-      end 
+      end
     end
   end
 
   private
-    def set_municipe
-      @municipe = Municipe.find(params[:id])
-    end
+  def set_municipe
+    @municipe = Municipe.find(params[:id])
+  end
 
-    def filter_params
-      params['query'] || ''
-    end
+  def filter_params
+    params['query'] || ''
+  end
 
-    def municipe_params
-      params.require(:municipe).permit(:name,
-                                       :cpf,
-                                       :cns,
-                                       :email,
-                                       :birthdate,
-                                       :phone,
-                                       :status,
-                                       :avatar,
-                                       adress_attributes: %i[
-                                         id postal_code street complement district city state ibge_code
-                                        ]
-                                      )
-    end
+  def municipe_params
+    params.require(:municipe).permit(:name,
+                                     :cpf,
+                                     :cns,
+                                     :email,
+                                     :birthdate,
+                                     :phone,
+                                     :status,
+                                     :avatar,
+                                     adress_attributes: %i[
+                                       id postal_code street complement district city state ibge_code
+                                      ]
+                                    )
+  end
 end

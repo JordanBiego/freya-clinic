@@ -8,8 +8,8 @@ class CreateMunicipe
 
   def submit
     @municipe = @municipe.new(@params)
-    @municipe.active!
     return false unless @municipe.valid?
+    @municipe.active!
 
     if @municipe.save
       send_mail

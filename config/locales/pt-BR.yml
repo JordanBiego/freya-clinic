@@ -4,10 +4,18 @@ pt-BR:
     attributes:
       municipe:
         name: 'Nome'
-        birth_date: 'Data de Nascimento'
+        birthdate: 'Data de Nascimento'
         phone: 'Telefone'
-      endereco:
+        inactive: 'Inativo'
+        active: 'Ativo'
+      adress:
+        postal_code: 'CEP'
+        street: 'Logradouro'
+        complement: 'Complemento'
+        district: 'Bairro'
+        state: 'UF'
         ibge_code: 'Código IBGE'
+        city: 'Cidade'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -27,7 +35,6 @@ pt-BR:
     - sex
     - sáb
     abbr_month_names:
-    -
     - jan
     - fev
     - mar
